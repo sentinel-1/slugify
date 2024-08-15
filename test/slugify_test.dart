@@ -26,6 +26,12 @@ void main() {
     expect(result, equals(expected));
   });
 
+  test('Georgian text (unicode) support without latin character set', () {
+    var result = slugify(' თ~ე\$თრი-& თრ#ითი/ნა^ @_ თე%თრ (თო3ლზე); თრთოდა?');
+    var expected = 'თეთრი-and-თრითინა-at-თეთრ-თო3ლზე-თრთოდა';
+    expect(result, equals(expected));
+  });
+
   test('trims leading/trailing whitespace', () {
     var result = slugify('  too many spaces  ');
     var expected = 'too-many-spaces';
